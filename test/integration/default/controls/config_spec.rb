@@ -24,9 +24,7 @@ control 'nifi configuration' do
       should include(
         '"tofs": {"files_switch": ["any/path/can/be/used/here", "id", '\
         '"roles", "osfinger", "os", "os_family"], "source_files": '\
-        '{"nifi-config-file-file-managed": ["example.tmpl.jinja"], '\
-        '"nifi-subcomponent-config-file-file-managed": '\
-        '["subcomponent-example.tmpl.jinja"]}'
+        '{"nifi-config-file-file-managed": ["example.tmpl.jinja"]}'
       )
     end
     its('content') { should include '"arch": "amd64"' }

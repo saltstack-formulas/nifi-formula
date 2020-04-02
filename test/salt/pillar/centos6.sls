@@ -47,8 +47,6 @@ nifi:
     source_files:
       nifi-config-file-file-managed:
         - 'example.tmpl.jinja'
-      nifi-subcomponent-config-file-file-managed:
-        - 'subcomponent-example.tmpl.jinja'
 
   # Just for testing purposes
   winner: pillar
