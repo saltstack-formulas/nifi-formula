@@ -1,0 +1,7 @@
+########################################################################
+# File managed by Salt at <{{ source }}>.
+# Your changes will be overwritten.
+########################################################################
+[Service]
+LimitNOFILE={{ nifi.systemdconfig['limitnofile'] }}
+LimitNPROC={{ nifi.systemdconfig['limitnproc'] }}
