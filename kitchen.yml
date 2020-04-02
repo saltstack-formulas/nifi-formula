@@ -190,9 +190,6 @@ suites:
       pillars_from_files:
         nifi.sls: pillar.example
         define_roles.sls: test/salt/pillar/define_roles.sls
-    verifier:
-      inspec_tests:
-        - path: test/integration/default
   - name: centos6
     includes:
       - centos-6-2018-3-py2
@@ -210,6 +207,3 @@ suites:
       pillars_from_files:
         nifi.sls: test/salt/pillar/centos6.sls
         define_roles.sls: test/salt/pillar/define_roles.sls
-    verifier:
-      inspec_tests:
-        - path: test/integration/default
