@@ -4,6 +4,6 @@ nifi-set-swappiness:
     - value: 0
 
 nifi-set-ipv4-port-range:
-  sysctl.present: 
+  sysctl.present:
     - name: net.ipv4.ip_local_port_range
     - value: "10000 65000"

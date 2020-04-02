@@ -5,12 +5,13 @@ nifi:
 
   pkg:
     name: nifi
-    downloadurl: https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.4-bin.tar.gz
+    downloadurl: >
+      https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.4-bin.tar.gz
     version: 1.11.4
     installdir: /opt
 
     # Options for OpenJDK. Version must match exact package name on system.
-    javajdk: True
+    javajdk: true
     javajdkversion: 1.8.0
 
   systemdconfig:
@@ -37,7 +38,8 @@ nifi:
     flowcontroller.graceful.shutdown.period: '10 sec'
     flowservice.writedelay.interval: '500 ms'
     administrative.yield.duration: '30 sec'
-    # If a component has no work to do (is "bored"), how long should we wait before checking again for work?
+    # If a component has no work to do (is "bored"),
+    # how long should we wait before checking again for work?
     bored.yield.duration: '10 millis'
     queue.backpressure.count: 10000
     queue.backpressure.size: '1 GB'
@@ -57,11 +59,15 @@ nifi:
     state.management.configuration.file: ./conf/state-management.xml
     # The ID of the local state provider
     state.management.provider.local: local-provider
-    # The ID of the cluster-wide state provider. This will be ignored if NiFi is not clustered but must be populated if running in a cluster.
+    # The ID of the cluster-wide state provider.
+    # This will be ignored if NiFi is not clustered
+    # but must be populated if running in a cluster.
     state.management.provider.cluster: zk-provider
-    # Specifies whether or not this instance of NiFi should run an embedded ZooKeeper server
+    # Specifies whether or not this instance of
+    # NiFi should run an embedded ZooKeeper server
     state.management.embedded.zookeeper.start: 'false'
-    # Properties file that provides the ZooKeeper properties to use if <state.management.embedded.zookeeper.start> is set to true
+    # Properties file that provides the ZooKeeper
+    # properties to use if <state.management.embedded.zookeeper.start> is set to true
     state.management.embedded.zookeeper.properties: ./conf/zookeeper.properties
 
 
@@ -70,8 +76,10 @@ nifi:
     h2.url.append: ';LOCK_TIMEOUT=25000;WRITE_DELAY=0;AUTO_SERVER=FALSE'
 
     # FlowFile Repository
-    flowfile.repository.implementation: org.apache.nifi.controller.repository.WriteAheadFlowFileRepository
-    flowfile.repository.wal.implementation: org.apache.nifi.wali.SequentialAccessWriteAheadLog
+    flowfile.repository.implementation: >
+      org.apache.nifi.controller.repository.WriteAheadFlowFileRepository
+    flowfile.repository.wal.implementation: >
+      org.apache.nifi.wali.SequentialAccessWriteAheadLog
     flowfile.repository.directory: ./flowfile_repository
     flowfile.repository.partitions: 256
     flowfile.repository.checkpoint.interval: '2 mins'
@@ -89,7 +97,8 @@ nifi:
     swap.out.threads: 4
 
     # Content Repository
-    content.repository.implementation: org.apache.nifi.controller.repository.FileSystemRepository
+    content.repository.implementation: >
+      org.apache.nifi.controller.repository.FileSystemRepository
     content.claim.max.appendable.size: 1 MB
     content.claim.max.flow.files: 100
     content.repository.directory.default: ./content_repository
@@ -104,7 +113,8 @@ nifi:
     content.repository.encryption.key: ''
 
     # Provenance Repository Properties
-    provenance.repository.implementation: org.apache.nifi.provenance.WriteAheadProvenanceRepository
+    provenance.repository.implementation: >
+      org.apache.nifi.provenance.WriteAheadProvenanceRepository
     provenance.repository.debug.frequency: '1_000_000'
     provenance.repository.encryption.key.provider.implementation: ''
     provenance.repository.encryption.key.provider.location: ''
@@ -121,16 +131,24 @@ nifi:
     provenance.repository.index.threads: 2
     provenance.repository.compress.on.rollover: 'true'
     provenance.repository.always.sync: 'false'
-    # Comma-separated list of fields. Fields that are not indexed will not be searchable. Valid fields are:
-    # EventType, FlowFileUUID, Filename, TransitURI, ProcessorID, AlternateIdentifierURI, Relationship, Details
-    provenance.repository.indexed.fields: 'EventType, FlowFileUUID, Filename, ProcessorID, Relationship'
-    # FlowFile Attributes that should be indexed and made searchable.  Some examples to consider are filename, uuid, mime.type
+    # Comma-separated list of fields. Fields that are not indexed
+    # will not be searchable.
+    # Valid fields are:
+    # EventType, FlowFileUUID, Filename, TransitURI, ProcessorID,
+    # AlternateIdentifierURI, Relationship, Details
+    provenance.repository.indexed.fields: >
+      'EventType, FlowFileUUID, Filename, ProcessorID, Relationship'
+    # FlowFile Attributes that should be indexed and made searchable.
+    # Some examples to consider are filename, uuid, mime.type
     provenance.repository.indexed.attributes: ''
-    # Large values for the shard size will result in more Java heap usage when searching the Provenance Repository
+    # Large values for the shard size will result
+    # in more Java heap usage when searching the Provenance Repository
     # but should provide better performance
     provenance.repository.index.shard.size: '500 MB'
-    # Indicates the maximum length that a FlowFile attribute can be when retrieving a Provenance Event from
-    # the repository. If the length of any attribute exceeds this value, it will be truncated when the event is retrieved.
+    # Indicates the maximum length that a FlowFile attribute
+    # can be when retrieving a Provenance Event from
+    # the repository. If the length of any attribute exceeds
+    # this value, it will be truncated when the event is retrieved.
     provenance.repository.max.attribute.length: 65536
     provenance.repository.concurrent.merge.threads: 2
 
@@ -139,7 +157,8 @@ nifi:
     provenance.repository.buffer.size: 100000
 
     # Component Status Repository
-    components.status.repository.implementation: org.apache.nifi.controller.status.history.VolatileComponentStatusRepository
+    components.status.repository.implementation: >
+      org.apache.nifi.controller.status.history.VolatileComponentStatusRepository
     components.status.repository.buffer.size: 1440
     components.status.snapshot.frequency: 1 min
 
@@ -201,11 +220,14 @@ nifi:
     security.user.knox.audiences: ''
 
     # Identity Mapping Properties #
-    # These properties allow normalizing user identities such that identities coming from different identity providers
-    # (certificates, LDAP, Kerberos) can be treated the same internally in  The following example demonstrates normalizing
+    # These properties allow normalizing user identities
+    # such that identities coming from different identity providers
+    # (certificates, LDAP, Kerberos) can be treated the
+    # same internally in  The following example demonstrates normalizing
     # DNs from certificates and principals from Kerberos into a common identity string:
     #
-    # security.identity.mapping.pattern.dn=^CN=(.*?), OU=(.*?), O=(.*?), L=(.*?), ST=(.*?), C=(.*?)$
+    # security.identity.mapping.pattern.dn: >
+    # ^CN=(.*?), OU=(.*?), O=(.*?), L=(.*?), ST=(.*?), C=(.*?)$
     # security.identity.mapping.value.dn=$1@$2
     # security.identity.mapping.transform.dn=NONE
     # security.identity.mapping.pattern.kerb=^(.*?)/instance@(.*?)$
@@ -213,7 +235,8 @@ nifi:
     # security.identity.mapping.transform.kerb=UPPER
 
     # Group Mapping Properties #
-    # These properties allow normalizing group names coming from external sources like LDAP. The following example
+    # These properties allow normalizing group names coming
+    # from external sources like LDAP. The following example
     # lowercases any group name.
     #
     # security.group.mapping.pattern.anygroup=^(.*)$
@@ -251,11 +274,16 @@ nifi:
     zookeeper.session.timeout: '3 secs'
     zookeeper.root.node: '/nifi'
 
-    # Zookeeper properties for the authentication scheme used when creating acls on znodes used for cluster management
-    # Values supported for zookeeper.auth.type are "default", which will apply world/anyone rights on znodes
-    # and "sasl" which will give rights to the sasl/kerberos identity used to authenticate the nifi node
-    # The identity is determined using the value in kerberos.service.principal and the removeHostFromPrincipal
-    # and removeRealmFromPrincipal values (which should align with the kerberos.removeHostFromPrincipal and kerberos.removeRealmFromPrincipal
+    # Zookeeper properties for the authentication scheme used when
+    # creating acls on znodes used for cluster management
+    # Values supported for zookeeper.auth.type are "default",
+    # which will apply world/anyone rights on znodes
+    # and "sasl" which will give rights to the sasl/kerberos
+    # identity used to authenticate the nifi node
+    # The identity is determined using the value in
+    # kerberos.service.principal and the removeHostFromPrincipal
+    # and removeRealmFromPrincipal values (which should align
+    # with the kerberos.removeHostFromPrincipal and kerberos.removeRealmFromPrincipal
     # values configured on the zookeeper server).
     zookeeper.auth.type: ''
     zookeeper.kerberos.removeHostFromPrincipal: ''
@@ -281,7 +309,8 @@ nifi:
     analytics.predict.enabled: 'false'
     analytics.predict.interval: '3 mins'
     analytics.query.interval: '5 mins'
-    analytics.connection.model.implementation: org.apache.nifi.controller.status.analytics.models.OrdinaryLeastSquares
+    analytics.connection.model.implementation: >
+      org.apache.nifi.controller.status.analytics.models.OrdinaryLeastSquares
     analytics.connection.model.score.name: rSquared
     analytics.connection.model.score.threshold: '.90'
 
@@ -293,7 +322,8 @@ nifi:
     dataDir: ./state/zookeeper
     autopurge.snapRetainCount: 30
 
-    # The server string has changed as of 3.5.5 and the client port is now specified at the end of the server string:
+    # The server string has changed as of 3.5.5
+    # and the client port is now specified at the end of the server string:
     # https://zookeeper.apache.org/doc/r3.5.5/zookeeperReconfig.html#sc_reconfig_clientport
     #
     # Specifies the servers that are part of this zookeeper ensemble. For
@@ -302,7 +332,8 @@ nifi:
     # after a semi-colon.
     #
     # For instance:
-    # To configure Zookeeper.properties set enabled to 'true' above, and then define your Zookeeper servers here.
+    # To configure Zookeeper.properties set enabled to 'true' above,
+    # and then define your Zookeeper servers here.
     # The hostname below needs to be the FQDN of the server.
     customservers:
       Node1:
@@ -334,7 +365,8 @@ nifi:
     lib.dir: ./lib
     conf.dir: ./conf
 
-    # How long to wait after telling NiFi to shutdown before explicitly killing the Process
+    # How long to wait after telling NiFi to
+    # shutdown before explicitly killing the Process
     graceful.shutdown.seconds: 20
 
     # Disable JSR 199 so that we can use JSP's without running a JDK
@@ -346,16 +378,21 @@ nifi:
 
     java.arg.4: '-Djava.net.preferIPv4Stack=true'
 
-    # allowRestrictedHeaders is required for Cluster/Node communications to work properly
+    # allowRestrictedHeaders is required for
+    # Cluster/Node communications to work properly
     java.arg.5: '-Dsun.net.http.allowRestrictedHeaders=true'
     java.arg.6: '-Djava.protocol.handler.pkgs=sun.net.www.protocol'
 
-    # The G1GC is known to cause some problems in Java 8 and earlier, but the issues were addressed in Java 9. If using Java 8 or earlier,
-    # it is recommended that G1GC not be used, especially in conjunction with the Write Ahead Provenance Repository. However, if using a newer
-    # version of Java, it can result in better performance without significant "stop-the-world" delays.
-    #java.arg.13=-XX:+UseG1GC
+    # The G1GC is known to cause some problems in Java 8 and earlier,
+    # but the issues were addressed in Java 9. If using Java 8 or earlier,
+    # it is recommended that G1GC not be used, especially
+    # in conjunction with the Write Ahead Provenance Repository.
+    # However, if using a newer
+    # version of Java, it can result in better performance without
+    # significant "stop-the-world" delays.
+    # java.arg.13=-XX:+UseG1GC
 
-    #Set headless mode by default
+    # Set headless mode by default
     java.arg.14: '-Djava.awt.headless=true'
 
     # Master key in hexadecimal format for encrypted sensitive configuration values
@@ -364,34 +401,43 @@ nifi:
     # Sets the provider of SecureRandom to /dev/urandom to prevent blocking on VMs
     java.arg.15: '-Djava.security.egd=file:/dev/urandom'
 
-    # Requires JAAS to use only the provided JAAS configuration to authenticate a Subject, without using any "fallback" methods (such as prompting for username/password)
-    # Please see https://docs.oracle.com/javase/8/docs/technotes/guides/security/jgss/single-signon.html, section "EXCEPTIONS TO THE MODEL"
+    # Requires JAAS to use only the provided JAAS configuration
+    # to authenticate a Subject, without using any "fallback" methods
+    # (such as prompting for username/password)
+    # Please see
+    # https://docs.oracle.com/javase/8/docs/technotes/guides/security/jgss/single-signon.html,
+    # section "EXCEPTIONS TO THE MODEL"
     java.arg.16: '-Djavax.security.auth.useSubjectCredsOnly=true'
 
-    # Zookeeper 3.5 now includes an Admin Server that starts on port 8080, since NiFi is already using that port disable by default.
-    # Please see https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_adminserver_config for configuration options.
+    # Zookeeper 3.5 now includes an Admin Server that starts on port 8080,
+    # since NiFi is already using that port disable by default.
+    # Please see
+    # https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_adminserver_config
+    # for configuration options.
     java.arg.17: '-Dzookeeper.admin.enableServer=false'
 
     ###
-    # Notification Services for notifying interested parties when NiFi is stopped, started, dies
+    # Notification Services for notifying interested parties when NiFi is stopped,
+    # started, dies
     ###
 
     # XML File that contains the definitions of the notification services
     notification.services.file: ./conf/bootstrap-notification-services.xml
 
-    # In the case that we are unable to send a notification for an event, how many times should we retry?
+    # In the case that we are unable to send a notification for an event,
+    # how many times should we retry?
     notification.max.attempts: 5
 
   nifienv:
-    #export JAVA_HOME=/usr/java/jdk1.8.0/
+    # export JAVA_HOME=/usr/java/jdk1.8.0/
     exportJAVAHOME: /usr/lib/jvm/jre
 
     exportNIFIHOME: '$(cd "${SCRIPT_DIR}" && cd .. && pwd)'
 
-    #The directory for the NiFi pid file
+    # The directory for the NiFi pid file
     exportNIFIPIDDIR: '"${NIFI_HOME}/run"'
 
-    #The directory for NiFi log files
+    # The directory for NiFi log files
     exportNIFILOGDIR: '"${NIFI_HOME}/logs"'
 
     # Set to false to force the use of Keytab controller service in processors
@@ -399,7 +445,8 @@ nifi:
     # and principal directly within the processor. If false, these processors will be
     # invalid if attempting to configure these properties. This may be advantageous in
     # a multi-tenant environment where management of keytabs should be performed only by
-    # a user with elevated permissions (i.e., users that have been granted the 'ACCESS_KEYTAB'
+    # a user with elevated permissions
+    # (i.e., users that have been granted the 'ACCESS_KEYTAB'
     # restriction).
     exportNIFIALLOWEXPLICITKEYTAB: 'true'
 
@@ -424,7 +471,7 @@ nifi:
             <property name="Session Timeout">10 seconds</property>
             <property name="Access Control">Open</property>
         </cluster-provider>
-    </stateManagement>    
+    </stateManagement>
 
   # Nifi Bootstrap Notifications Service Config File Defaults
   # This is an XML code block. Ensure this is properly indented
@@ -447,27 +494,27 @@ nifi:
   authorizers: |
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <authorizers>
-        <userGroupProvider>
-            <identifier>file-user-group-provider</identifier>
-            <class>org.apache.nifi.authorization.FileUserGroupProvider</class>
-            <property name="Users File">./conf/users.xml</property>
-            <property name="Legacy Authorized Users File"></property>
+      <userGroupProvider>
+        <identifier>file-user-group-provider</identifier>
+        <class>org.apache.nifi.authorization.FileUserGroupProvider</class>
+        <property name="Users File">./conf/users.xml</property>
+        <property name="Legacy Authorized Users File"></property>
 
-            <property name="Initial User Identity 1"></property>
-        </userGroupProvider>
-        <accessPolicyProvider>
-            <identifier>file-access-policy-provider</identifier>
-            <class>org.apache.nifi.authorization.FileAccessPolicyProvider</class>
-            <property name="User Group Provider">file-user-group-provider</property>
-            <property name="Authorizations File">./conf/authorizations.xml</property>
-            <property name="Initial Admin Identity"></property>
-            <property name="Legacy Authorized Users File"></property>
-            <property name="Node Identity 1"></property>
-            <property name="Node Group"></property>
-        </accessPolicyProvider>
-        <authorizer>
-            <identifier>managed-authorizer</identifier>
-            <class>org.apache.nifi.authorization.StandardManagedAuthorizer</class>
-            <property name="Access Policy Provider">file-access-policy-provider</property>
-        </authorizer>
+        <property name="Initial User Identity 1"></property>
+      </userGroupProvider>
+      <accessPolicyProvider>
+        <identifier>file-access-policy-provider</identifier>
+        <class>org.apache.nifi.authorization.FileAccessPolicyProvider</class>
+        <property name="User Group Provider">file-user-group-provider</property>
+        <property name="Authorizations File">./conf/authorizations.xml</property>
+        <property name="Initial Admin Identity"></property>
+        <property name="Legacy Authorized Users File"></property>
+        <property name="Node Identity 1"></property>
+        <property name="Node Group"></property>
+      </accessPolicyProvider>
+      <authorizer>
+        <identifier>managed-authorizer</identifier>
+        <class>org.apache.nifi.authorization.StandardManagedAuthorizer</class>
+        <property name="Access Policy Provider">file-access-policy-provider</property>
+      </authorizer>
     </authorizers>
