@@ -94,8 +94,8 @@ nifi:
 nifi:
   pkg:
     name: nifi
-    downloadurl: https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.4-bin.tar.gz
-    version: 1.11.4
+    downloadurl: https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.3-bin.tar.gz
+    version: 1.11.3
     installdir: /opt
     # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
     javajdk: True
