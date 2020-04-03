@@ -7,7 +7,7 @@
 
 {%- if nifi.pkg.javajdk %}
 
-{%- if grains['os'] == 'CentOS' and os_major_release >= 7 %}
+{%- if grains['os'] == 'CentOS' %}
 {%- if nifi.pkg.javajdkversion == '8' %} 
 nifi-package-install-dependency-javajdk:
   pkg.installed:
@@ -20,7 +20,7 @@ nifi-package-install-dependency-javajdk:
 {% endif %}
 {% endif %}
 
-{%- if grains['os'] == 'Ubuntu' and os_major_release >= 18 %}
+{%- if grains['os'] == 'Ubuntu' %}
 {%- if nifi.pkg.javajdkversion == '8' %}
 nifi-package-install-dependency-javajdk:
   pkg.installed:
