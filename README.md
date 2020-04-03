@@ -52,7 +52,7 @@ nifi:
     version: 1.11.4
     installdir: /opt
     # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
-    javajdk: True
+    javajdk: False
     javajdkversion: 1.8.0
   systemdconfig:
     user: root
