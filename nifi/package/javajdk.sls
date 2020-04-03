@@ -8,12 +8,12 @@
 {%- if nifi.pkg.javajdk %}
 
 {%- if grains['os'] == 'CentOS' %}
-{%- if nifi.pkg.javajdkversion == '8' %} 
+{%- if nifi.pkg['javajdkversion'] == 8 %}
 nifi-package-install-dependency-javajdk:
   pkg.installed:
-    - name: java-1.{{ nifi.pkg.javajdkversion }}*-openjdk
+    - name: java-1.8.*-openjdk
 {% endif %}
-{%- if nifi.pkg.javajdkversion == '11' %} 
+{%- if nifi.pkg['javajdkversion'] == 11 %}
 nifi-package-install-dependency-javajdk:
   pkg.installed:
     - name: java-11-openjdk
@@ -21,12 +21,12 @@ nifi-package-install-dependency-javajdk:
 {% endif %}
 
 {%- if grains['os'] == 'Ubuntu' %}
-{%- if nifi.pkg.javajdkversion == '8' %}
+{%- if nifi.pkg['javajdkversion'] == 8 %}
 nifi-package-install-dependency-javajdk:
   pkg.installed:
     - name: openjdk-8-jdk
 {% endif %}
-{%- if nifi.pkg.javajdkversion == '11' %}
+{%- if nifi.pkg['javajdkversion'] == 11 %}
 nifi-package-install-dependency-javajdk:
   pkg.installed:
     - name: default-jdk

@@ -11,7 +11,7 @@ nifi:
     installdir: /opt
 
     # Options for OpenJDK. Version must match exact package name on system.
-    javajdk: true
+    javajdk: True
     javajdkversion: 8
 
   systemdconfig:
@@ -430,7 +430,7 @@ nifi:
 
   nifienv:
     # export JAVA_HOME=/usr/java/jdk1.8.0/
-    exportJAVAHOME: /usr/lib/jvm/jre
+    exportJAVAHOME: /usr/bin/
 
     exportNIFIHOME: '$(cd "${SCRIPT_DIR}" && cd .. && pwd)'
 
