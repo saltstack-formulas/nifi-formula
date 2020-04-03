@@ -1,5 +1,0 @@
----
-username: kitchen
-hostname: localhost
-ssh_key: "/root/nifi-formula/.kitchen/docker_id_rsa"
-last_error: Kitchen::ShellOut::ShellCommandFailed
