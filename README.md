@@ -11,7 +11,7 @@ Configures systemd and sysctl limits automatically. See the pillar.example for d
 
 ## Requirements
 
-1. CentOS 7 or 8
+1. CentOS 7 or 8, Ubuntu 18.04+
 
 ## Usage
 
