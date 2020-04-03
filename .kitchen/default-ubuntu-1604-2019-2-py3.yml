@@ -1,0 +1,9 @@
+---
+username: kitchen
+hostname: localhost
+ssh_key: "/root/nifi-formula/.kitchen/docker_id_rsa"
+image_id: 3b41465584bc
+container_id: 0e7f27ce463bc1de73b1f56a77909cf0668e73f408312cd20a883838aef02f41
+port: 32771
+last_action: create
+last_error: Kitchen::ActionFailed

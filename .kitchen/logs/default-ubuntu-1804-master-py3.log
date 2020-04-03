@@ -1,0 +1,260 @@
+I, [2020-03-23T14:37:46.362431 #3330]  INFO -- default-ubuntu-1804-master-py3: -----> Cleaning up any prior instances of <default-ubuntu-1804-master-py3>
+I, [2020-03-23T14:37:46.362519 #3330]  INFO -- default-ubuntu-1804-master-py3: -----> Destroying <default-ubuntu-1804-master-py3>...
+I, [2020-03-23T14:37:46.363033 #3330]  INFO -- default-ubuntu-1804-master-py3: Finished destroying <default-ubuntu-1804-master-py3> (0m0.00s).
+I, [2020-03-23T14:37:46.363179 #3330]  INFO -- default-ubuntu-1804-master-py3: -----> Testing <default-ubuntu-1804-master-py3>
+I, [2020-03-23T14:37:46.363246 #3330]  INFO -- default-ubuntu-1804-master-py3: -----> Creating <default-ubuntu-1804-master-py3>...
+E, [2020-03-23T14:38:09.071929 #3330] ERROR -- default-ubuntu-1804-master-py3: Create failed on instance <default-ubuntu-1804-master-py3>.
+E, [2020-03-23T14:38:09.072121 #3330] ERROR -- default-ubuntu-1804-master-py3: ------Exception-------
+E, [2020-03-23T14:38:09.072143 #3330] ERROR -- default-ubuntu-1804-master-py3: Class: Kitchen::ShellOut::ShellCommandFailed
+E, [2020-03-23T14:38:09.072163 #3330] ERROR -- default-ubuntu-1804-master-py3: Message: Expected process to exit with [0], but received '100'
+---- Begin output of docker -H unix:///var/run/docker.sock build -f Dockerfile-kitchen20200323-3330-1rdwe9 . ----
+STDOUT: Sending build context to Docker daemon  964.6kB
+Step 1/17 : FROM netmanagers/salt-master-py3:ubuntu-18.04
+ubuntu-18.04: Pulling from netmanagers/salt-master-py3
+5bed26d33875: Already exists
+f11b29a9c730: Already exists
+930bda195c84: Already exists
+78bf9a5ad49e: Already exists
+2d049fa4a1d7: Pulling fs layer
+6e5055e5b7c0: Pulling fs layer
+7d278a0cbd93: Pulling fs layer
+eb7d87ff7361: Pulling fs layer
+3c56aee67107: Pulling fs layer
+4373fb4d3ca4: Pulling fs layer
+c11c286492c4: Pulling fs layer
+9fded3886d5e: Pulling fs layer
+5596d19917a5: Pulling fs layer
+a962b17f6510: Pulling fs layer
+f77406a752bf: Pulling fs layer
+eb7d87ff7361: Waiting
+3c56aee67107: Waiting
+4373fb4d3ca4: Waiting
+c11c286492c4: Waiting
+9fded3886d5e: Waiting
+5596d19917a5: Waiting
+a962b17f6510: Waiting
+f77406a752bf: Waiting
+2d049fa4a1d7: Verifying Checksum
+2d049fa4a1d7: Download complete
+6e5055e5b7c0: Verifying Checksum
+6e5055e5b7c0: Download complete
+2d049fa4a1d7: Pull complete
+6e5055e5b7c0: Pull complete
+eb7d87ff7361: Verifying Checksum
+eb7d87ff7361: Download complete
+3c56aee67107: Verifying Checksum
+3c56aee67107: Download complete
+4373fb4d3ca4: Verifying Checksum
+4373fb4d3ca4: Download complete
+c11c286492c4: Verifying Checksum
+c11c286492c4: Download complete
+5596d19917a5: Verifying Checksum
+5596d19917a5: Download complete
+a962b17f6510: Verifying Checksum
+a962b17f6510: Download complete
+f77406a752bf: Verifying Checksum
+f77406a752bf: Download complete
+7d278a0cbd93: Verifying Checksum
+7d278a0cbd93: Download complete
+9fded3886d5e: Verifying Checksum
+9fded3886d5e: Download complete
+7d278a0cbd93: Pull complete
+eb7d87ff7361: Pull complete
+3c56aee67107: Pull complete
+4373fb4d3ca4: Pull complete
+c11c286492c4: Pull complete
+9fded3886d5e: Pull complete
+5596d19917a5: Pull complete
+a962b17f6510: Pull complete
+f77406a752bf: Pull complete
+Digest: sha256:27e36fea7344670d120777fc4f49930fa71bfd086c33be92468a2d323f8122f5
+Status: Downloaded newer image for netmanagers/salt-master-py3:ubuntu-18.04
+ ---> ed8baaaa9523
+Step 2/17 : RUN [ ! -f "/sbin/initctl" ] || dpkg-divert --local --rename --add /sbin/initctl && ln -sf /bin/true /sbin/initctl
+ ---> Running in 6573dc62925c
+Leaving 'local diversion of /sbin/initctl to /sbin/initctl.distrib'
+Removing intermediate container 6573dc62925c
+ ---> 2c668bebf888
+Step 3/17 : ENV DEBIAN_FRONTEND noninteractive
+ ---> Running in af8a79ac0bb3
+Removing intermediate container af8a79ac0bb3
+ ---> 9b5d514ca615
+Step 4/17 : ENV container docker
+ ---> Running in 7958fd8eb660
+Removing intermediate container 7958fd8eb660
+ ---> 4f681abeda57
+Step 5/17 : RUN apt-get update
+ ---> Running in 5df34adc4384
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/main amd64 Packages [1344 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic/restricted amd64 Packages [13.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [186 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [11.3 MB]
+Reading package lists...
+[91mE: Release file for http://security.ubuntu.com/ubuntu/dists/bionic-security/InRelease is not valid yet (invalid for another 10d 22h 58min 55s). Updates for this repository will not be applied.
+E: Release file for http://archive.ubuntu.com/ubuntu/dists/bionic-updates/InRelease is not valid yet (invalid for another 11d 0h 33min 51s). Updates for this repository will not be applied.
+E: Release file for http://archive.ubuntu.com/ubuntu/dists/bionic-backports/InRelease is not valid yet (invalid for another 10d 23h 1min 25s). Updates for this repository will not be applied.
+[0m
+STDERR: The command '/bin/sh -c apt-get update' returned a non-zero code: 100
+---- End output of docker -H unix:///var/run/docker.sock build -f Dockerfile-kitchen20200323-3330-1rdwe9 . ----
+Ran docker -H unix:///var/run/docker.sock build -f Dockerfile-kitchen20200323-3330-1rdwe9 . returned 100
+E, [2020-03-23T14:38:09.072187 #3330] ERROR -- default-ubuntu-1804-master-py3: ----------------------
+E, [2020-03-23T14:38:09.072204 #3330] ERROR -- default-ubuntu-1804-master-py3: ------Backtrace-------
+E, [2020-03-23T14:38:09.072220 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/shell_out.rb:71:in `rescue in run_command'
+E, [2020-03-23T14:38:09.072236 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/shell_out.rb:59:in `run_command'
+E, [2020-03-23T14:38:09.072251 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/kitchen-docker-2.10.0/lib/kitchen/docker/helpers/cli_helper.rb:36:in `docker_command'
+E, [2020-03-23T14:38:09.072267 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/kitchen-docker-2.10.0/lib/kitchen/docker/helpers/image_helper.rb:52:in `build_image'
+E, [2020-03-23T14:38:09.072282 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/kitchen-docker-2.10.0/lib/kitchen/docker/container/linux.rb:38:in `create'
+E, [2020-03-23T14:38:09.072298 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/kitchen-docker-2.10.0/lib/kitchen/driver/docker.rb:123:in `create'
+E, [2020-03-23T14:38:09.072313 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:485:in `public_send'
+E, [2020-03-23T14:38:09.072331 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:485:in `block in perform_action'
+E, [2020-03-23T14:38:09.072347 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:552:in `synchronize_or_call'
+E, [2020-03-23T14:38:09.072363 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:514:in `block in action'
+E, [2020-03-23T14:38:09.072379 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/2.4.0/benchmark.rb:293:in `measure'
+E, [2020-03-23T14:38:09.072394 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:513:in `action'
+E, [2020-03-23T14:38:09.072410 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:485:in `perform_action'
+E, [2020-03-23T14:38:09.072428 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:394:in `create_action'
+E, [2020-03-23T14:38:09.072444 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:382:in `block (2 levels) in transition_to'
+E, [2020-03-23T14:38:09.072459 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/lifecycle_hooks.rb:45:in `run_with_hooks'
+E, [2020-03-23T14:38:09.072475 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:381:in `block in transition_to'
+E, [2020-03-23T14:38:09.072493 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:380:in `each'
+E, [2020-03-23T14:38:09.072509 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:380:in `transition_to'
+E, [2020-03-23T14:38:09.072525 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:162:in `verify'
+E, [2020-03-23T14:38:09.072540 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:191:in `block in test'
+E, [2020-03-23T14:38:09.072556 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/2.4.0/benchmark.rb:293:in `measure'
+E, [2020-03-23T14:38:09.072571 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:187:in `test'
+E, [2020-03-23T14:38:09.072587 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/command.rb:198:in `public_send'
+E, [2020-03-23T14:38:09.072602 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/command.rb:198:in `run_action_in_thread'
+E, [2020-03-23T14:38:09.072618 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2020-03-23T14:38:09.072636 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb:474:in `block in create_with_logging_context'
+E, [2020-03-23T14:38:09.072652 #3330] ERROR -- default-ubuntu-1804-master-py3: ----End Backtrace-----
+E, [2020-03-23T14:38:09.072668 #3330] ERROR -- default-ubuntu-1804-master-py3: ---Nested Exception---
+E, [2020-03-23T14:38:09.072733 #3330] ERROR -- default-ubuntu-1804-master-py3: Class: Mixlib::ShellOut::ShellCommandFailed
+E, [2020-03-23T14:38:09.072785 #3330] ERROR -- default-ubuntu-1804-master-py3: Message: Expected process to exit with [0], but received '100'
+---- Begin output of docker -H unix:///var/run/docker.sock build -f Dockerfile-kitchen20200323-3330-1rdwe9 . ----
+STDOUT: Sending build context to Docker daemon  964.6kB
+Step 1/17 : FROM netmanagers/salt-master-py3:ubuntu-18.04
+ubuntu-18.04: Pulling from netmanagers/salt-master-py3
+5bed26d33875: Already exists
+f11b29a9c730: Already exists
+930bda195c84: Already exists
+78bf9a5ad49e: Already exists
+2d049fa4a1d7: Pulling fs layer
+6e5055e5b7c0: Pulling fs layer
+7d278a0cbd93: Pulling fs layer
+eb7d87ff7361: Pulling fs layer
+3c56aee67107: Pulling fs layer
+4373fb4d3ca4: Pulling fs layer
+c11c286492c4: Pulling fs layer
+9fded3886d5e: Pulling fs layer
+5596d19917a5: Pulling fs layer
+a962b17f6510: Pulling fs layer
+f77406a752bf: Pulling fs layer
+eb7d87ff7361: Waiting
+3c56aee67107: Waiting
+4373fb4d3ca4: Waiting
+c11c286492c4: Waiting
+9fded3886d5e: Waiting
+5596d19917a5: Waiting
+a962b17f6510: Waiting
+f77406a752bf: Waiting
+2d049fa4a1d7: Verifying Checksum
+2d049fa4a1d7: Download complete
+6e5055e5b7c0: Verifying Checksum
+6e5055e5b7c0: Download complete
+2d049fa4a1d7: Pull complete
+6e5055e5b7c0: Pull complete
+eb7d87ff7361: Verifying Checksum
+eb7d87ff7361: Download complete
+3c56aee67107: Verifying Checksum
+3c56aee67107: Download complete
+4373fb4d3ca4: Verifying Checksum
+4373fb4d3ca4: Download complete
+c11c286492c4: Verifying Checksum
+c11c286492c4: Download complete
+5596d19917a5: Verifying Checksum
+5596d19917a5: Download complete
+a962b17f6510: Verifying Checksum
+a962b17f6510: Download complete
+f77406a752bf: Verifying Checksum
+f77406a752bf: Download complete
+7d278a0cbd93: Verifying Checksum
+7d278a0cbd93: Download complete
+9fded3886d5e: Verifying Checksum
+9fded3886d5e: Download complete
+7d278a0cbd93: Pull complete
+eb7d87ff7361: Pull complete
+3c56aee67107: Pull complete
+4373fb4d3ca4: Pull complete
+c11c286492c4: Pull complete
+9fded3886d5e: Pull complete
+5596d19917a5: Pull complete
+a962b17f6510: Pull complete
+f77406a752bf: Pull complete
+Digest: sha256:27e36fea7344670d120777fc4f49930fa71bfd086c33be92468a2d323f8122f5
+Status: Downloaded newer image for netmanagers/salt-master-py3:ubuntu-18.04
+ ---> ed8baaaa9523
+Step 2/17 : RUN [ ! -f "/sbin/initctl" ] || dpkg-divert --local --rename --add /sbin/initctl && ln -sf /bin/true /sbin/initctl
+ ---> Running in 6573dc62925c
+Leaving 'local diversion of /sbin/initctl to /sbin/initctl.distrib'
+Removing intermediate container 6573dc62925c
+ ---> 2c668bebf888
+Step 3/17 : ENV DEBIAN_FRONTEND noninteractive
+ ---> Running in af8a79ac0bb3
+Removing intermediate container af8a79ac0bb3
+ ---> 9b5d514ca615
+Step 4/17 : ENV container docker
+ ---> Running in 7958fd8eb660
+Removing intermediate container 7958fd8eb660
+ ---> 4f681abeda57
+Step 5/17 : RUN apt-get update
+ ---> Running in 5df34adc4384
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/main amd64 Packages [1344 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic/restricted amd64 Packages [13.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [186 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [11.3 MB]
+Reading package lists...
+[91mE: Release file for http://security.ubuntu.com/ubuntu/dists/bionic-security/InRelease is not valid yet (invalid for another 10d 22h 58min 55s). Updates for this repository will not be applied.
+E: Release file for http://archive.ubuntu.com/ubuntu/dists/bionic-updates/InRelease is not valid yet (invalid for another 11d 0h 33min 51s). Updates for this repository will not be applied.
+E: Release file for http://archive.ubuntu.com/ubuntu/dists/bionic-backports/InRelease is not valid yet (invalid for another 10d 23h 1min 25s). Updates for this repository will not be applied.
+[0m
+STDERR: The command '/bin/sh -c apt-get update' returned a non-zero code: 100
+---- End output of docker -H unix:///var/run/docker.sock build -f Dockerfile-kitchen20200323-3330-1rdwe9 . ----
+Ran docker -H unix:///var/run/docker.sock build -f Dockerfile-kitchen20200323-3330-1rdwe9 . returned 100
+E, [2020-03-23T14:38:09.072811 #3330] ERROR -- default-ubuntu-1804-master-py3: ----------------------
+E, [2020-03-23T14:38:09.072828 #3330] ERROR -- default-ubuntu-1804-master-py3: ------Backtrace-------
+E, [2020-03-23T14:38:09.072844 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/shell_out.rb:71:in `rescue in run_command'
+E, [2020-03-23T14:38:09.072860 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/shell_out.rb:59:in `run_command'
+E, [2020-03-23T14:38:09.072875 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/kitchen-docker-2.10.0/lib/kitchen/docker/helpers/cli_helper.rb:36:in `docker_command'
+E, [2020-03-23T14:38:09.072893 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/kitchen-docker-2.10.0/lib/kitchen/docker/helpers/image_helper.rb:52:in `build_image'
+E, [2020-03-23T14:38:09.072909 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/kitchen-docker-2.10.0/lib/kitchen/docker/container/linux.rb:38:in `create'
+E, [2020-03-23T14:38:09.072924 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/kitchen-docker-2.10.0/lib/kitchen/driver/docker.rb:123:in `create'
+E, [2020-03-23T14:38:09.072940 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:485:in `public_send'
+E, [2020-03-23T14:38:09.072956 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:485:in `block in perform_action'
+E, [2020-03-23T14:38:09.072971 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:552:in `synchronize_or_call'
+E, [2020-03-23T14:38:09.072987 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:514:in `block in action'
+E, [2020-03-23T14:38:09.073002 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/2.4.0/benchmark.rb:293:in `measure'
+E, [2020-03-23T14:38:09.073018 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:513:in `action'
+E, [2020-03-23T14:38:09.073033 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:485:in `perform_action'
+E, [2020-03-23T14:38:09.073051 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:394:in `create_action'
+E, [2020-03-23T14:38:09.073067 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:382:in `block (2 levels) in transition_to'
+E, [2020-03-23T14:38:09.073083 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/lifecycle_hooks.rb:45:in `run_with_hooks'
+E, [2020-03-23T14:38:09.073098 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:381:in `block in transition_to'
+E, [2020-03-23T14:38:09.073114 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:380:in `each'
+E, [2020-03-23T14:38:09.073129 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:380:in `transition_to'
+E, [2020-03-23T14:38:09.073145 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:162:in `verify'
+E, [2020-03-23T14:38:09.073160 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:191:in `block in test'
+E, [2020-03-23T14:38:09.073176 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/2.4.0/benchmark.rb:293:in `measure'
+E, [2020-03-23T14:38:09.073191 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/instance.rb:187:in `test'
+E, [2020-03-23T14:38:09.073211 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/command.rb:198:in `public_send'
+E, [2020-03-23T14:38:09.073228 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/command.rb:198:in `run_action_in_thread'
+E, [2020-03-23T14:38:09.073243 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/test-kitchen-2.4.0/lib/kitchen/command.rb:169:in `block (2 levels) in run_action'
+E, [2020-03-23T14:38:09.073259 #3330] ERROR -- default-ubuntu-1804-master-py3: /root/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb:474:in `block in create_with_logging_context'
+E, [2020-03-23T14:38:09.073275 #3330] ERROR -- default-ubuntu-1804-master-py3: ----End Backtrace-----
