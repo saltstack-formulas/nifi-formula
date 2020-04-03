@@ -11,7 +11,7 @@ nifi:
     installdir: /opt
 
     # Options for OpenJDK. Version must match exact package name on system.
-    javajdk: True
+    javajdk: true
     javajdkversion: 8
 
   systemdconfig:
@@ -430,7 +430,12 @@ nifi:
 
   nifienv:
     # export JAVA_HOME=/usr/java/jdk1.8.0/
+    {%- if grains['os'] == 'CentOS' %}
+    exportJAVAHOME: /usr/lib/jvm/jre
+    {% endif %}
+    {%- if grains['os'] == 'Ubuntu' %}
     exportJAVAHOME: /usr/bin/
+    {% endif %}
 
     exportNIFIHOME: '$(cd "${SCRIPT_DIR}" && cd .. && pwd)'
 
