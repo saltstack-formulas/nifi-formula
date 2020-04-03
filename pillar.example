@@ -12,7 +12,7 @@ nifi:
 
     # Options for OpenJDK. Version must match exact package name on system.
     javajdk: true
-    javajdkversion: 1.8.0
+    javajdkversion: 8
 
   systemdconfig:
     user: root
