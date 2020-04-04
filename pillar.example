@@ -10,9 +10,9 @@ nifi:
     version: 1.11.4
     installdir: /opt
 
-    # Options for OpenJDK. Version must match exact package name on system.
-    javajdk: true
-    javajdkversion: 8
+    # Override OpenJDK package to be installed, if value in `osfamilymap.yaml`
+    # is not appropriate; e.g. for `RedHat`:
+    # javajdk: 'java-11-openjdk'
 
   systemdconfig:
     user: root

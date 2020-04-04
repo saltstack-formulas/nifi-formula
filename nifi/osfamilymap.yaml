@@ -10,9 +10,13 @@
 # you will need to provide at least an empty dict in this file, e.g.
 # osfamilymap: {}
 ---
-Debian: {}
+Debian:
+  pkg:
+    javajdk: 'openjdk-11-jdk'
 
-RedHat: {}
+RedHat:
+  pkg:
+    javajdk: 'java-11-openjdk'
 
 Suse: {}
 

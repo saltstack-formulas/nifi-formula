@@ -12,12 +12,18 @@
 ---
 # os: Debian
 Debian-10: {}
-Debian-9: {}
-Debian-8: {}
+Debian-9:
+  pkg:
+    javajdk: 'openjdk-8-jdk'
+Debian-8:
+  pkg:
+    javajdk: 'openjdk-7-jdk'
 
 # os: Ubuntu
 Ubuntu-18.04: {}
-Ubuntu-16.04: {}
+Ubuntu-16.04:
+  pkg:
+    javajdk: 'openjdk-8-jdk'
 
 # os: Fedora
 Fedora-31: {}
@@ -26,7 +32,9 @@ Fedora-30: {}
 # os: CentOS
 CentOS Linux-8: {}
 CentOS Linux-7: {}
-CentOS-6: {}
+CentOS-6:
+  pkg:
+    javajdk: 'java-1.8.0-openjdk'
 
 # os: Amazon
 Amazon Linux-2: {}

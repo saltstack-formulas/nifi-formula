@@ -17,7 +17,9 @@ Raspbian: {}
 # os_family: RedHat
 Fedora: {}
 CentOS: {}
-Amazon: {}
+Amazon:
+  pkg:
+    javajdk: 'java-1.8.0-openjdk'
 
 # os_family: Suse
 SUSE: {}
