@@ -11,20 +11,12 @@
 # osmap: {}
 ---
 # os_family: Debian
-Ubuntu:
-  pkg:
-    name: nifi-ubuntu
-  config: /etc/nifi.d/custom-ubuntu.conf
+Ubuntu: {}
 Raspbian: {}
 
 # os_family: RedHat
-Fedora:
-  pkg:
-    name: nifi-fedora
-  service:
-    name: service-fedora
-CentOS:
-  config: '/opt/nifi/nifi.conf'
+Fedora: {}
+CentOS: {}
 Amazon: {}
 
 # os_family: Suse

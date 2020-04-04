@@ -20,7 +20,6 @@ nifi:
     limitnofile: 50000
     limitnproc: 10000
 
-  rootgroup: root
   config: 'nifi.properties'
   service:
     name: nifi
