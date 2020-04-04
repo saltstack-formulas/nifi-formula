@@ -10,27 +10,15 @@
 # you will need to provide at least an empty dict in this file, e.g.
 # osfamilymap: {}
 ---
-Debian:
-  pkg:
-    name: nifi-debian
-  config: /etc/nifi.d/custom.conf
+Debian: {}
 
-RedHat:
-  pkg:
-    name: nifi-redhat
-  config: /etc/nifi.conf
+RedHat: {}
 
-Suse:
-  pkg:
-    name: nifi-suse
+Suse: {}
 
 Gentoo: {}
 
-Arch:
-  pkg:
-    name: nifi-arch
-  service:
-    name: service-arch
+Arch: {}
 
 Alpine: {}
 
