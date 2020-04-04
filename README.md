@@ -12,7 +12,7 @@ Configures systemd and sysctl limits automatically. See the pillar.example for d
 ## Requirements
 
 1. CentOS, Debian or Ubuntu
-2. Cluster Configuraton requires that you have DNS/FQDN 
+2. Cluster Configuraton requires that you have DNS/FQDN
 setup for your nodes. (FQDN is mapped in Salt)
 
 ## Usage
