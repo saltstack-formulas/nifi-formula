@@ -11,9 +11,7 @@ Configures systemd and sysctl limits automatically. See the pillar.example for d
 
 ## Requirements
 
-1. CentOS, Debian or Ubuntu
-2. Cluster Configuraton requires that you have DNS/FQDN
-setup for your nodes. (FQDN is mapped in Salt)
+1. CentOS 7 or 8, Ubuntu 18.04+
 
 ## Usage
 
@@ -33,7 +31,8 @@ nifi:
     version: 1.11.4
     installdir: /opt
     # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
-    javajdk: java-1.8.0-openjdk
+    javajdk: True
+    javajdkversion: 1.8.0
   nifi:
     cluster.is.node: 'false'
   systemdconfig:
@@ -53,7 +52,8 @@ nifi:
     version: 1.11.4
     installdir: /opt
     # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
-    javajdk: java-1.8.0-openjdk
+    javajdk: False
+    javajdkversion: 1.8.0
   systemdconfig:
     user: root
     group: root
@@ -98,7 +98,8 @@ nifi:
     version: 1.11.3
     installdir: /opt
     # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
-    javajdk: java-1.8.0-openjdk
+    javajdk: True
+    javajdkversion: 1.8.0
   systemdconfig:
     user: root
     group: root
