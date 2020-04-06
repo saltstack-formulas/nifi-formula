@@ -11,7 +11,7 @@ Configures systemd and sysctl limits automatically. See the pillar.example for d
 
 ## Requirements
 
-1. CentOS 7 or 8, Ubuntu 18.04+
+1. CentOS 7/8, Ubuntu 16.04+, Debian
 
 ## Usage
 
@@ -31,8 +31,7 @@ nifi:
     version: 1.11.4
     installdir: /opt
     # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
-    javajdk: True
-    javajdkversion: 1.8.0
+    javajdk: java-1.8.0-openjdk
   nifi:
     cluster.is.node: 'false'
   systemdconfig:
@@ -52,8 +51,7 @@ nifi:
     version: 1.11.4
     installdir: /opt
     # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
-    javajdk: False
-    javajdkversion: 1.8.0
+    javajdk: java-1.8.0-openjdk
   systemdconfig:
     user: root
     group: root
@@ -98,8 +96,7 @@ nifi:
     version: 1.11.3
     installdir: /opt
     # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
-    javajdk: True
-    javajdkversion: 1.8.0
+    javajdk: java-1.8.0-openjdk
   systemdconfig:
     user: root
     group: root
