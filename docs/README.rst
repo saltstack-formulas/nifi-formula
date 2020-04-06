@@ -17,6 +17,7 @@ nifi-formula
 A salt formula to deploy Apache NiFi
 
 Configure Apache NiFi in 3 different configurations:
+
 * Standalone
 * Cluster with embedded Zookeeper
 * Cluster with external Zookeeper
