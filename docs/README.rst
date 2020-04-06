@@ -14,8 +14,13 @@ nifi-formula
    :scale: 100%
    :target: https://github.com/semantic-release/semantic-release
 
-A SaltStack formula that is empty. It has dummy content to help with a quick
-start on a new formula and it serves as a style guide.
+A salt formula to deploy Apache NiFi
+
+Configure Apache NiFi in 3 different configurations: \* Standalone \*
+Cluster with embedded Zookeeper \* Cluster with external Zookeeper
+
+Configures systemd and sysctl limits automatically. See the
+pillar.example for detailed list of pillars.
 
 .. contents:: **Table of Contents**
 
@@ -45,7 +50,106 @@ Please see `How to contribute <https://github.com/saltstack-formulas/.github/blo
 Special notes
 -------------
 
-None
+Sample Pillars
+^^^^^^^^^^^^^^
+
+Pillars - Standalone Node
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By Default all of the settings will configure a standalone NiFi Node
+
+::
+
+    nifi:
+      pkg:
+        name: nifi
+        downloadurl: https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.4-bin.tar.gz
+        version: 1.11.4
+        installdir: /opt
+        # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
+        javajdk: java-1.8.0-openjdk
+      nifi:
+        cluster.is.node: 'false'
+      systemdconfig:
+        user: root
+        group: root
+        limitnofile: 50000
+        limitnproc: 10000
+
+Pillars - 3 Node Cluster with Embedded Zookeeper
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    nifi:
+      pkg:
+        name: nifi
+        downloadurl: https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.4-bin.tar.gz
+        version: 1.11.4
+        installdir: /opt
+        # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
+        javajdk: java-1.8.0-openjdk
+      systemdconfig:
+        user: root
+        group: root
+        limitnofile: 50000
+        limitnproc: 10000
+      nifi:
+        # cluster node properties (only configure for cluster nodes) #
+        cluster.is.node: 'true'
+        cluster.node.address: {{ grains['fqdn'] }}
+        cluster.node.protocol.port: '1111'
+        cluster.flow.election.max.wait.time: '1 mins'
+        zookeeper.connect.string: 'nifi-1.localdomain:2181,nifi-2.localdomain:2181,nifi-3.localdomain:2181'
+        state.management.embedded.zookeeper.start: 'true'
+        web.http.host: {{ grains['fqdn'] }}
+      zookeeperproperties:
+        # To configure Zookeeper.properties set 'state.management.embedded.zookeeper.start' to 'true' above, and then define your Embedded Zookeeper servers here.
+        customservers:
+          Node1:
+            hostname: nifi-1.localdomain
+            zookeeper_myid: 1
+            zookeeper_clientPort: 2181
+            zookeeper_peerPorts: '2888:3888'
+          Node2:
+            hostname: nifi-2.localdomain
+            zookeeper_myid: 2
+            zookeeper_clientPort: 2181
+            zookeeper_peerPorts: '2888:3888'
+          Node3:
+            hostname: nifi-3.localdomain
+            zookeeper_myid: 3
+            zookeeper_clientPort: 2181
+            zookeeper_peerPorts: '2888:3888'
+
+Pillars - 3 Node Cluster with External Zookeeper Servers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    nifi:
+      pkg:
+        name: nifi
+        downloadurl: https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.3-bin.tar.gz
+        version: 1.11.3
+        installdir: /opt
+        # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
+        javajdk: java-1.8.0-openjdk
+      systemdconfig:
+        user: root
+        group: root
+        limitnofile: 50000
+        limitnproc: 10000
+      nifi:
+        # cluster node properties (only configure for cluster nodes) #
+        cluster.is.node: 'true'
+        cluster.node.address: {{ grains['fqdn'] }}
+        cluster.node.protocol.port: '1111'
+        cluster.flow.election.max.wait.time: '1 mins'
+        zookeeper.connect.string: 'nifi-1.localdomain:2181,nifi-2.localdomain:2181,nifi-3.localdomain:2181'
+        state.management.embedded.zookeeper.start: 'true'
+        web.http.host: {{ grains['fqdn'] }}
+
 
 Available states
 ----------------
@@ -65,7 +169,7 @@ starts the associated nifi service.
 ``nifi.package``
 ^^^^^^^^^^^^^^^^^^^^
 
-This state will install the nifi package only.
+This state will install the nifi package only. This downloads the tar.gz file from the downloadurl and deploys it to servers.
 
 ``nifi.config``
 ^^^^^^^^^^^^^^^^^^^
@@ -78,55 +182,6 @@ via include list.
 
 This state will start the nifi service and has a dependency on ``nifi.config``
 via include list.
-
-``nifi.clean``
-^^^^^^^^^^^^^^^^^^
-
-*Meta-state (This is a state that includes other states)*.
-
-this state will undo everything performed in the ``nifi`` meta-state in reverse order, i.e.
-stops the service,
-removes the configuration file and
-then uninstalls the package.
-
-``nifi.service.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will stop the nifi service and disable it at boot time.
-
-``nifi.config.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will remove the configuration of the nifi service and has a
-dependency on ``nifi.service.clean`` via include list.
-
-``nifi.package.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will remove the nifi package and has a depency on
-``nifi.config.clean`` via include list.
-
-``nifi.subcomponent``
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-*Meta-state (This is a state that includes other states)*.
-
-This state installs a subcomponent configuration file before
-configuring and starting the nifi service.
-
-``nifi.subcomponent.config``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will configure the nifi subcomponent and has a
-dependency on ``nifi.config`` via include list.
-
-``nifi.subcomponent.config.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This state will remove the configuration of the nifi subcomponent
-and reload the nifi service by a dependency on
-``nifi.service.running`` via include list and ``watch_in``
-requisite.
 
 Testing
 -------
