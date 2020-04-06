@@ -16,8 +16,11 @@ nifi-formula
 
 A salt formula to deploy Apache NiFi
 
-Configure Apache NiFi in 3 different configurations: \* Standalone \*
-Cluster with embedded Zookeeper \* Cluster with external Zookeeper
+Configure Apache NiFi in 3 different configurations:
+
+* Standalone
+* Cluster with embedded Zookeeper
+* Cluster with external Zookeeper
 
 Configures systemd and sysctl limits automatically. See the
 pillar.example for detailed list of pillars.
