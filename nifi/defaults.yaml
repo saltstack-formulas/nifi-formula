@@ -137,7 +137,7 @@ nifi:
     # EventType, FlowFileUUID, Filename, TransitURI, ProcessorID,
     # AlternateIdentifierURI, Relationship, Details
     provenance.repository.indexed.fields: >
-      'EventType, FlowFileUUID, Filename, ProcessorID, Relationship'
+      EventType, FlowFileUUID, Filename, ProcessorID, Relationship
     # FlowFile Attributes that should be indexed and made searchable.
     # Some examples to consider are filename, uuid, mime.type
     provenance.repository.indexed.attributes: ''
@@ -430,7 +430,7 @@ nifi:
 
   nifienv:
     # export JAVA_HOME=/usr/java/jdk1.8.0/
-    exportJAVAHOME: /usr/bin/
+    exportJAVAHOME: /usr/
 
     exportNIFIHOME: '$(cd "${SCRIPT_DIR}" && cd .. && pwd)'
 
