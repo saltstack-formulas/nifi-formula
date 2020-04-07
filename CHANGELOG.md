@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/saltstack-formulas/nifi-formula/compare/v0.1.1...v0.1.2) (2020-04-07)
+
+
+### Bug Fixes
+
+* java path and provenance indexed fields ([2b04bcb](https://github.com/saltstack-formulas/nifi-formula/commit/2b04bcb6ea21454de13d0effe2ac98850c828584))
+
 ## [0.1.1](https://github.com/saltstack-formulas/nifi-formula/compare/v0.1.0...v0.1.1) (2020-04-06)
 
 
