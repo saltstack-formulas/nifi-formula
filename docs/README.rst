@@ -53,6 +53,12 @@ Please see `How to contribute <https://github.com/saltstack-formulas/.github/blo
 Special notes
 -------------
 
+Requirements
+^^^^^^^^^^^^^^
+
+* CentOS, Ubuntu, Debian
+* Cluster configurations require hosts setup with FQDN and DNS.
+
 Sample Pillars
 ^^^^^^^^^^^^^^
 
