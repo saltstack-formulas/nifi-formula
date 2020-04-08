@@ -75,7 +75,7 @@ By Default all of the settings will configure a standalone NiFi Node
         downloadurl: https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.4-bin.tar.gz
         version: 1.11.4
         installdir: /opt
-        # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
+        # JDK Package to install. Leave empty to not install.
         javajdk: java-1.8.0-openjdk
       nifi:
         cluster.is.node: 'false'
@@ -96,7 +96,7 @@ Pillars - 3 Node Cluster with Embedded Zookeeper
         downloadurl: https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.4-bin.tar.gz
         version: 1.11.4
         installdir: /opt
-        # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
+        # JDK Package to install. Leave empty to not install.
         javajdk: java-1.8.0-openjdk
       systemdconfig:
         user: root
@@ -142,7 +142,7 @@ Pillars - 3 Node Cluster with External Zookeeper Servers
         downloadurl: https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.3-bin.tar.gz
         version: 1.11.3
         installdir: /opt
-        # If set to 'True' OpenJDK is installed. Version must match exact version in rpm/yum name.
+        # JDK Package to install. Leave empty to not install.
         javajdk: java-1.8.0-openjdk
       systemdconfig:
         user: root
