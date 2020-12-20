@@ -6,8 +6,8 @@ nifi:
   pkg:
     name: nifi
     downloadurl: >
-      https://mirror.csclub.uwaterloo.ca/apache/nifi/1.11.4/nifi-1.11.4-bin.tar.gz
-    version: 1.11.4
+      https://mirror.csclub.uwaterloo.ca/apache/nifi/1.12.1/nifi-1.12.1-bin.tar.gz
+    version: 1.12.1
     installdir: /opt
 
     # OpenJDK package name on system; defaults to an empty string, which avoids
