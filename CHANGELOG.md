@@ -1,5 +1,31 @@
 # Changelog
 
+# [0.2.0](https://github.com/saltstack-formulas/nifi-formula/compare/v0.1.3...v0.2.0) (2020-12-16)
+
+
+### Continuous Integration
+
+* **gitlab-ci:** use GitLab CI as Travis CI replacement ([c61c13e](https://github.com/saltstack-formulas/nifi-formula/commit/c61c13e6d1e7a1be6a6301741a6520c8305f9283))
+* **kitchen:** use `saltimages` Docker Hub where available [skip ci] ([dc1b5dc](https://github.com/saltstack-formulas/nifi-formula/commit/dc1b5dcbf9c8388c5f19a2d0a096537bfa8407b3))
+* **kitchen+travis:** add new platforms [skip ci] ([abb0147](https://github.com/saltstack-formulas/nifi-formula/commit/abb0147c69384bb39936347d8c1a39203fe1a5df))
+* **kitchen+travis:** adjust matrix to add `3000.2` & remove `2018.3` [skip ci] ([ea539a2](https://github.com/saltstack-formulas/nifi-formula/commit/ea539a2535f952769bed390ebce5796ac1189208))
+* **kitchen+travis:** adjust matrix to add `3000.3` [skip ci] ([8768f47](https://github.com/saltstack-formulas/nifi-formula/commit/8768f474a89df4612942c6deefb325bd2e87f24c))
+* **pre-commit:** add to formula [skip ci] ([e50e79e](https://github.com/saltstack-formulas/nifi-formula/commit/e50e79eb2c963c5012d4b3606fc9b7879206e0b4))
+* **pre-commit:** enable/disable `rstcheck` as relevant [skip ci] ([66f60f6](https://github.com/saltstack-formulas/nifi-formula/commit/66f60f64247afc85ec3c19c0aac59a189e9c8a7e))
+* **pre-commit:** finalise `rstcheck` configuration [skip ci] ([7a0aa8c](https://github.com/saltstack-formulas/nifi-formula/commit/7a0aa8c4e604531957d9a2790430bff22682a613))
+* **travis:** add notifications => zulip [skip ci] ([1c9f4f0](https://github.com/saltstack-formulas/nifi-formula/commit/1c9f4f0b937864dda99724f4be7a7deb8a4b42e0))
+* **workflows/commitlint:** add to repo [skip ci] ([6bb4d47](https://github.com/saltstack-formulas/nifi-formula/commit/6bb4d472b052dd1910853572dd55fab3efe850a2))
+
+
+### Features
+
+* **defaults:** update version from `1.11.4` => `1.12.1` [skip ci] ([704601a](https://github.com/saltstack-formulas/nifi-formula/commit/704601a5bdb8c00d4cb15e830cbd6a2b5d42d47e))
+
+
+### Styles
+
+* **libtofs.jinja:** use Black-inspired Jinja formatting [skip ci] ([135f01a](https://github.com/saltstack-formulas/nifi-formula/commit/135f01a377587f347713d026f3c58538327a245f))
+
 ## [0.1.3](https://github.com/saltstack-formulas/nifi-formula/compare/v0.1.2...v0.1.3) (2020-04-08)
 
 
