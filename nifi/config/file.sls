@@ -101,6 +101,60 @@ nifi-nifienv-file-file-managed:
     - context:
         nifi: {{ nifi | json }}
 
+# NiFi Authorizers File
+nifi-authorizers-file-file-managed:
+  file.managed:
+    - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/authorizers.xml
+    - source: {{ files_switch(['authorizers.tmpl.jinja'],
+                              lookup='nifi-authorizers-file-file-managed'
+                 )
+              }}
+    - mode: 644
+    - user: {{ nifi.systemdconfig.user }}
+    - group: {{ nifi.systemdconfig.group }}
+    - makedirs: True
+    - template: jinja
+    - require:
+      - sls: {{ sls_package_install }}
+    - context:
+        nifi: {{ nifi | json }}
+
+# NiFi Login Identity Providers File
+nifi-loginprovider-file-file-managed:
+  file.managed:
+    - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/login-identity-providers.xml
+    - source: {{ files_switch(['loginidentityproviders.tmpl.jinja'],
+                              lookup='nifi-loginprovider-file-file-managed'
+                 )
+              }}
+    - mode: 644
+    - user: {{ nifi.systemdconfig.user }}
+    - group: {{ nifi.systemdconfig.group }}
+    - makedirs: True
+    - template: jinja
+    - require:
+      - sls: {{ sls_package_install }}
+    - context:
+        nifi: {{ nifi | json }}
+
+# NiFi Login Identity Providers File
+nifi-statemanagement-file-file-managed:
+  file.managed:
+    - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/state-management.xml
+    - source: {{ files_switch(['statemanagement.tmpl.jinja'],
+                              lookup='nifi-statemanagement-file-file-managed'
+                 )
+              }}
+    - mode: 644
+    - user: {{ nifi.systemdconfig.user }}
+    - group: {{ nifi.systemdconfig.group }}
+    - makedirs: True
+    - template: jinja
+    - require:
+      - sls: {{ sls_package_install }}
+    - context:
+        nifi: {{ nifi | json }}
+
 # Configure an embedded zookeeper. Not recommended for production.
 # If the embedded zookeeper is enabled deploy zookeepers.properties file.
 {% if nifi.nifi['state.management.embedded.zookeeper.start'] != 'false' %}
