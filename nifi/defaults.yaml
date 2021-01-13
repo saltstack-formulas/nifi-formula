@@ -233,7 +233,14 @@ nifi:
     # security.identity.mapping.pattern.kerb=^(.*?)/instance@(.*?)$
     # security.identity.mapping.value.kerb=$1@$2
     # security.identity.mapping.transform.kerb=UPPER
+    security.identity.mapping.pattern.dn: false
+    security.identity.mapping.value.dn: false
+    security.identity.mapping.transform.dn: false
+    security.identity.mapping.pattern.kerb: false
+    security.identity.mapping.value.kerb: false
+    security.identity.mapping.transform.kerb: false
 
+    #
     # Group Mapping Properties #
     # These properties allow normalizing group names coming
     # from external sources like LDAP. The following example
