@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`0.3.0 <https://github.com/saltstack-formulas/nifi-formula/compare/v0.2.0...v0.3.0>`_ (2021-01-13)
+------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **commitlint:** ensure ``upstream/master`` uses main repo URL [skip ci] (\ `6decd0d <https://github.com/saltstack-formulas/nifi-formula/commit/6decd0d595a0fd7a4acd60c8e0391af1d13ae0cc>`_\ )
+* **gitlab-ci:** add ``rubocop`` linter (with ``allow_failure``\ ) [skip ci] (\ `60938c8 <https://github.com/saltstack-formulas/nifi-formula/commit/60938c8ef91018ffa6053f91f0be0b88ff4c922e>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **security:** add comment security section (\ `1627e64 <https://github.com/saltstack-formulas/nifi-formula/commit/1627e647555a27456eb92e3ed512d70b0bd4d772>`_\ )
+
 `0.2.0 <https://github.com/saltstack-formulas/nifi-formula/compare/v0.1.3...v0.2.0>`_ (2020-12-16)
 ------------------------------------------------------------------------------------------------------
 
