@@ -203,24 +203,24 @@ nifi.security.user.knox.audiences={{ nifi.nifi['security.user.knox.audiences'] }
 # nifi.security.identity.mapping.pattern.kerb=^(.*?)/instance@(.*?)$
 # nifi.security.identity.mapping.value.kerb=$1@$2
 # nifi.security.identity.mapping.transform.kerb=UPPER
-{% if nifi.nifi['security.identity.mapping.pattern.dn'] != 'false' %}
+{% if nifi.nifi['security.identity.mapping.pattern.dn'] != 'false' -%}
 nifi.security.identity.mapping.pattern.dn={{ nifi.nifi['security.identity.mapping.pattern.dn'] }}
-{% endif %}
-{% if nifi.nifi['security.identity.mapping.value.dn'] != 'false' %}
+{%- endif %}
+{% if nifi.nifi['security.identity.mapping.value.dn'] != 'false' -%}
 nifi.security.identity.mapping.value.dn={{ nifi.nifi['security.identity.mapping.value.dn'] }}
-{% endif %}
-{% if nifi.nifi['security.identity.mapping.transform.dn'] != 'false' %}
+{%- endif %}
+{% if nifi.nifi['security.identity.mapping.transform.dn'] != 'false' -%}
 nifi.security.identity.mapping.transform.dn={{ nifi.nifi['security.identity.mapping.transform.dn'] }}
-{% endif %}
-{% if nifi.nifi['security.identity.mapping.pattern.kerb'] != 'false' %}
+{%- endif %}
+{% if nifi.nifi['security.identity.mapping.pattern.kerb'] != 'false' -%}
 nifi.security.identity.mapping.pattern.kerb={{ nifi.nifi['security.identity.mapping.pattern.kerb'] }}
-{% endif %}
-{% if nifi.nifi['security.identity.mapping.value.kerb'] != 'false' %}
+{%- endif %}
+{% if nifi.nifi['security.identity.mapping.value.kerb'] != 'false' -%}
 nifi.security.identity.mapping.value.kerb={{ nifi.nifi['security.identity.mapping.value.kerb'] }}
-{% endif %}
-{% if nifi.nifi['security.identity.mapping.transform.kerb'] != 'false' %}
+{%- endif %}
+{% if nifi.nifi['security.identity.mapping.transform.kerb'] != 'false' -%}
 nifi.security.identity.mapping.transform.kerb={{ nifi.nifi['security.identity.mapping.transform.kerb'] }}
-{% endif %}
+{%- endif %}
 
 # Group Mapping Properties #
 # These properties allow normalizing group names coming from external sources like LDAP. The following example
