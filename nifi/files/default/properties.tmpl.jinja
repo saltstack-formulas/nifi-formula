@@ -294,3 +294,8 @@ nifi.analytics.query.interval={{ nifi.nifi['analytics.query.interval'] }}
 nifi.analytics.connection.model.implementation={{ nifi.nifi['analytics.connection.model.implementation'] }}
 nifi.analytics.connection.model.score.name={{ nifi.nifi['analytics.connection.model.score.name'] }}
 nifi.analytics.connection.model.score.threshold={{ nifi.nifi['analytics.connection.model.score.threshold'] }}
+
+# Additional Options
+{% if nifi.nifi['additionalconfigenabled'] != 'false' -%}
+{{ nifi.nifi['additionalconfig'] }}
+{%- endif %}

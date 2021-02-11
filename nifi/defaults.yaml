@@ -321,6 +321,9 @@ nifi:
     analytics.connection.model.score.name: rSquared
     analytics.connection.model.score.threshold: '.90'
 
+    additionalconfigenabled: 'false'
+    additionalconfig: ''
+
   zookeeperproperties:
     initLimit: 10
     autopurge.purgeInterval: 24
