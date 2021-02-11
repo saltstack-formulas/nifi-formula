@@ -75,9 +75,6 @@ platforms:
   - name: ubuntu-1804-3000-3-py2
     driver:
       image: saltimages/salt-3000.3-py2:ubuntu-18.04
-  - name: ubuntu-1604-3000-3-py2
-    driver:
-      image: saltimages/salt-3000.3-py2:ubuntu-16.04
   - name: arch-base-latest-3000-3-py2
     driver:
       image: saltimages/salt-3000.3-py2:arch-base-latest
@@ -87,15 +84,9 @@ platforms:
   - name: debian-10-2019-2-py3
     driver:
       image: saltimages/salt-2019.2-py3:debian-10
-  - name: debian-9-2019-2-py3
-    driver:
-      image: saltimages/salt-2019.2-py3:debian-9
   - name: ubuntu-1804-2019-2-py3
     driver:
       image: saltimages/salt-2019.2-py3:ubuntu-18.04
-  - name: ubuntu-1604-2019-2-py3
-    driver:
-      image: saltimages/salt-2019.2-py3:ubuntu-16.04
   - name: centos-8-2019-2-py3
     driver:
       image: saltimages/salt-2019.2-py3:centos-8
