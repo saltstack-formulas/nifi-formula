@@ -72,7 +72,7 @@ nifi-config-file-file-managed:
 # NiFi Boostrap Notification Settings File.
 nifi-bootstrapnotifications-file-file-managed:
   file.managed:
-  {% if ( (pillar.nifi.bootstrap['notification.services.file'] is defined) and 
+  {% if ( (pillar.nifi.bootstrap['notification.services.file'] is defined) and
     (pillar.nifi.bootstrap['notification.services.file'] != './conf/bootstrap-notification-services.xml') ) %}
     - name: {{ nifi.bootstrap['notification.services.file'] }}
   {% else %}
@@ -113,7 +113,7 @@ nifi-nifienv-file-file-managed:
 # NiFi Authorizers File
 nifi-authorizers-file-file-managed:
   file.managed:
-  {% if ( (pillar.nifi.nifi['authorizer.configuration.file'] is defined) and 
+  {% if ( (pillar.nifi.nifi['authorizer.configuration.file'] is defined) and
     (pillar.nifi.nifi['authorizer.configuration.file'] != './conf/authorizers.xml') ) %}
     - name: {{ nifi.nifi['authorizer.configuration.file'] }}
   {% else %}
@@ -136,7 +136,7 @@ nifi-authorizers-file-file-managed:
 # NiFi Login Identity Providers File
 nifi-loginprovider-file-file-managed:
   file.managed:
-  {% if ( (pillar.nifi.nifi['login.identity.provider.configuration.file'] is defined) and 
+  {% if ( (pillar.nifi.nifi['login.identity.provider.configuration.file'] is defined) and
     (pillar.nifi.nifi['login.identity.provider.configuration.file'] != './conf/login-identity-providers.xml') ) %}
     - name: {{ nifi.nifi['login.identity.provider.configuration.file'] }}
   {% else %}
@@ -159,7 +159,7 @@ nifi-loginprovider-file-file-managed:
 # NiFi State Management File
 nifi-statemanagement-file-file-managed:
   file.managed:
-  {% if ( (pillar.nifi.nifi['state.management.configuration.file'] is defined) and 
+  {% if ( (pillar.nifi.nifi['state.management.configuration.file'] is defined) and
     (pillar.nifi.nifi['state.management.configuration.file'] != './conf/state-management.xml') ) %}
     - name: {{ nifi.nifi['state.management.configuration.file'] }}
   {% else %}
@@ -184,7 +184,7 @@ nifi-statemanagement-file-file-managed:
 {% if nifi.nifi['state.management.embedded.zookeeper.start'] != 'false' %}
 nifi-zookeeper-file-file-managed:
   file.managed:
-  {% if ( (pillar.nifi.nifi['state.management.embedded.zookeeper.properties'] is defined) and 
+  {% if ( (pillar.nifi.nifi['state.management.embedded.zookeeper.properties'] is defined) and
     (pillar.nifi.nifi['state.management.embedded.zookeeper.properties'] != './conf/zookeeper.properties') ) %}
     - name: {{ nifi.nifi['state.management.embedded.zookeeper.properties'] }}
   {% else %}
