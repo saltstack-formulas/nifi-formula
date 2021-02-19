@@ -29,24 +29,6 @@ nifi-limits-file-file-managed:
     - context:
         nifi: {{ nifi | json }}
 
-# NiFi Main Properties File.
-nifi-config-file-file-managed:
-  file.managed:
-    - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/nifi.properties
-    - source: {{ files_switch(['properties.tmpl.jinja'],
-                              lookup='nifi-config-file-file-managed'
-                 )
-              }}
-    - mode: 644
-    - user: {{ nifi.systemdconfig.user }}
-    - group: {{ nifi.systemdconfig.group }}
-    - makedirs: True
-    - template: jinja
-    - require:
-      - sls: {{ sls_package_install }}
-    - context:
-        nifi: {{ nifi | json }}
-
 # NiFi Boostrap Settings File. Define how NiFi will run.
 nifi-bootstrap-file-file-managed:
   file.managed:
@@ -65,10 +47,37 @@ nifi-bootstrap-file-file-managed:
     - context:
         nifi: {{ nifi | json }}
 
+# NiFi Main Properties File.
+nifi-config-file-file-managed:
+  file.managed:
+  {% if pillar.nifi.bootstrap['conf.dir'] is defined and pillar.nifi.bootstrap['conf.dir'] != './conf' %}
+    - name: {{ nifi.bootstrap['conf.dir'] }}/nifi.properties
+  {% else %}
+    - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/nifi.properties
+  {% endif %}
+    - source: {{ files_switch(['properties.tmpl.jinja'],
+                              lookup='nifi-config-file-file-managed'
+                 )
+              }}
+    - mode: 644
+    - user: {{ nifi.systemdconfig.user }}
+    - group: {{ nifi.systemdconfig.group }}
+    - makedirs: True
+    - template: jinja
+    - require:
+      - sls: {{ sls_package_install }}
+    - context:
+        nifi: {{ nifi | json }}
+
 # NiFi Boostrap Notification Settings File.
 nifi-bootstrapnotifications-file-file-managed:
   file.managed:
+  {% if ( (pillar.nifi.bootstrap['notification.services.file'] is defined) and
+    (pillar.nifi.bootstrap['notification.services.file'] != './conf/bootstrap-notification-services.xml') ) %}
+    - name: {{ nifi.bootstrap['notification.services.file'] }}
+  {% else %}
     - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/bootstrap-notification-services.xml
+  {% endif %}
     - source: {{ files_switch(['bootstrapnotifications.tmpl.jinja'],
                               lookup='nifi-bootstrapnotifications-file-file-managed'
                  )
@@ -104,7 +113,12 @@ nifi-nifienv-file-file-managed:
 # NiFi Authorizers File
 nifi-authorizers-file-file-managed:
   file.managed:
+  {% if ( (pillar.nifi.nifi['authorizer.configuration.file'] is defined) and
+    (pillar.nifi.nifi['authorizer.configuration.file'] != './conf/authorizers.xml') ) %}
+    - name: {{ nifi.nifi['authorizer.configuration.file'] }}
+  {% else %}
     - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/authorizers.xml
+  {% endif %}
     - source: {{ files_switch(['authorizers.tmpl.jinja'],
                               lookup='nifi-authorizers-file-file-managed'
                  )
@@ -122,7 +136,12 @@ nifi-authorizers-file-file-managed:
 # NiFi Login Identity Providers File
 nifi-loginprovider-file-file-managed:
   file.managed:
+  {% if ( (pillar.nifi.nifi['login.identity.provider.configuration.file'] is defined) and
+    (pillar.nifi.nifi['login.identity.provider.configuration.file'] != './conf/login-identity-providers.xml') ) %}
+    - name: {{ nifi.nifi['login.identity.provider.configuration.file'] }}
+  {% else %}
     - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/login-identity-providers.xml
+  {% endif %}
     - source: {{ files_switch(['loginidentityproviders.tmpl.jinja'],
                               lookup='nifi-loginprovider-file-file-managed'
                  )
@@ -137,10 +156,15 @@ nifi-loginprovider-file-file-managed:
     - context:
         nifi: {{ nifi | json }}
 
-# NiFi Login Identity Providers File
+# NiFi State Management File
 nifi-statemanagement-file-file-managed:
   file.managed:
+  {% if ( (pillar.nifi.nifi['state.management.configuration.file'] is defined) and
+    (pillar.nifi.nifi['state.management.configuration.file'] != './conf/state-management.xml') ) %}
+    - name: {{ nifi.nifi['state.management.configuration.file'] }}
+  {% else %}
     - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/state-management.xml
+  {% endif %}
     - source: {{ files_switch(['statemanagement.tmpl.jinja'],
                               lookup='nifi-statemanagement-file-file-managed'
                  )
@@ -160,7 +184,12 @@ nifi-statemanagement-file-file-managed:
 {% if nifi.nifi['state.management.embedded.zookeeper.start'] != 'false' %}
 nifi-zookeeper-file-file-managed:
   file.managed:
+  {% if ( (pillar.nifi.nifi['state.management.embedded.zookeeper.properties'] is defined) and
+    (pillar.nifi.nifi['state.management.embedded.zookeeper.properties'] != './conf/zookeeper.properties') ) %}
+    - name: {{ nifi.nifi['state.management.embedded.zookeeper.properties'] }}
+  {% else %}
     - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/zookeeper.properties
+  {% endif %}
     - source: {{ files_switch(['zookeeperproperties.tmpl.jinja'],
                               lookup='nifi-zookeeper-file-file-managed'
                  )
