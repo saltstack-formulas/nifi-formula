@@ -1,5 +1,43 @@
 # Changelog
 
+# [0.4.0](https://github.com/saltstack-formulas/nifi-formula/compare/v0.3.0...v0.4.0) (2021-02-19)
+
+
+### Bug Fixes
+
+* false should be string ([5b266c2](https://github.com/saltstack-formulas/nifi-formula/commit/5b266c2d7a28fdeb16537dcf4fbac7ce7f05a016))
+
+
+### Continuous Integration
+
+* **gemfile+lock:** use `ssf` customised `kitchen-docker` repo [skip ci] ([50b8c3e](https://github.com/saltstack-formulas/nifi-formula/commit/50b8c3ea0f4c1428334b27fe07210207f34acb0a))
+* **pre-commit:** update hook for `rubocop` [skip ci] ([7d43806](https://github.com/saltstack-formulas/nifi-formula/commit/7d43806e2dbb4c547119c050b61188ef824515af))
+
+
+### Features
+
+* **formula:** add optional config ([b3bf2dd](https://github.com/saltstack-formulas/nifi-formula/commit/b3bf2dd16773ee717576043c4bf4ae01cbff870c))
+* **formula:** check for default setting ([e1bcf20](https://github.com/saltstack-formulas/nifi-formula/commit/e1bcf20fab165905921031206035059a5b8c2ce2))
+* **formula:** remove travis ([a778a88](https://github.com/saltstack-formulas/nifi-formula/commit/a778a8842f5915d34b0f03dda2c97420f2924dfa))
+
+
+### Styles
+
+* **formula:** add line break ([a122966](https://github.com/saltstack-formulas/nifi-formula/commit/a12296657caf962a736d08341552b78675f9681c))
+* **formula:** add newline ([63f6a4b](https://github.com/saltstack-formulas/nifi-formula/commit/63f6a4b056c16516a00595f434c39d2895d9a4ac))
+
+
+### Tests
+
+* **formula:** adjust gitlab ci builds ([37c5b87](https://github.com/saltstack-formulas/nifi-formula/commit/37c5b874fef1678005950247814276d82fc7c6a9))
+* **formula:** adjust gitlab ci builds ([f4243ee](https://github.com/saltstack-formulas/nifi-formula/commit/f4243eed29ee07f5b0e3586084f2ef206c582362))
+* **formula:** remove fedora ([bb92f10](https://github.com/saltstack-formulas/nifi-formula/commit/bb92f10eabe0b046a0d75d53dceb4d84f91dd5fb))
+* add line break ([49bc4f4](https://github.com/saltstack-formulas/nifi-formula/commit/49bc4f4cdc1c82a58ead476bb919999f814697f9))
+* **formula:** remove old os ([74a995e](https://github.com/saltstack-formulas/nifi-formula/commit/74a995ef2d98e2a5ae554ebd39e782ffa0b83569))
+* **formula:** remove old os travis ([1c17bb7](https://github.com/saltstack-formulas/nifi-formula/commit/1c17bb73b6c9b0083ab17847843287b49679eafc))
+* remove test ([37173fa](https://github.com/saltstack-formulas/nifi-formula/commit/37173faa07f49d8a2466d56d60671a5c05a4b4f5))
+* testing jinja2 linebreak ([9b51800](https://github.com/saltstack-formulas/nifi-formula/commit/9b51800a107101dff72838d921fbd4c6c2a2064f))
+
 # [0.3.0](https://github.com/saltstack-formulas/nifi-formula/compare/v0.2.0...v0.3.0) (2021-01-13)
 
 
