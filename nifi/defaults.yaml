@@ -14,6 +14,15 @@ nifi:
     # installing OpenJDK.  Overridden in the `os*map.yaml` files.
     javajdk: ''
 
+  sysctl:
+    # Set to true to configure sysctl
+    configure: 'false'
+    vm.swappiness: 0
+    net.ipv4.ip_local_port_range: '10000 65000'
+    net.netfilter.nf_conntrack_max: 1
+    net.core.wmem_max: 262144
+    net.core.rmem_max: 262144
+
   systemdconfig:
     user: root
     group: root

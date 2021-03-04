@@ -9,7 +9,6 @@
 
 include:
   - {{ sls_package_install }}
-  - .sysctl
 
 # Set Systemd limits recommended by NiFi software requirements.
 nifi-limits-file-file-managed:
