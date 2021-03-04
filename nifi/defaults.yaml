@@ -15,8 +15,8 @@ nifi:
     javajdk: ''
 
   sysctl:
-    # Set to false to disable configuration of sysctl
-    configure: 'true'
+    # Set to true to configure sysctl
+    configure: 'false'
     vm.swappiness: 0
     net.ipv4.ip_local_port_range: '10000 65000'
     net.netfilter.nf_conntrack_max: 1
