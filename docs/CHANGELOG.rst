@@ -2,6 +2,17 @@
 Changelog
 =========
 
+`0.5.0 <https://github.com/saltstack-formulas/nifi-formula/compare/v0.4.0...v0.5.0>`_ (2021-03-04)
+------------------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **formula:** import nifi (\ `233d3e3 <https://github.com/saltstack-formulas/nifi-formula/commit/233d3e36b985a0a824c2320c2364b3d9e89f9b38>`_\ )
+* **formula:** pillar sysctl settings (\ `b1c31af <https://github.com/saltstack-formulas/nifi-formula/commit/b1c31afa8d05adfb8941b3d46c76d9d6bedfe7ff>`_\ )
+* **formula:** sysctl doesnt run in docker (\ `38fc8cd <https://github.com/saltstack-formulas/nifi-formula/commit/38fc8cd9f879f57ec1ae44ed71c9557c2d8c7d7c>`_\ )
+
 `0.4.0 <https://github.com/saltstack-formulas/nifi-formula/compare/v0.3.0...v0.4.0>`_ (2021-02-19)
 ------------------------------------------------------------------------------------------------------
 
