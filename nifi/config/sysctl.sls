@@ -13,11 +13,6 @@ nifi-set-ipv4-port-range:
     - name: net.ipv4.ip_local_port_range
     - value: {{ nifi.sysctl['net.ipv4.ip_local_port_range'] }}
 
-nifi-set-ipv4-connection:
-  sysctl.present:
-    - name: net.netfilter.nf_conntrack_max
-    - value: {{ nifi.sysctl['net.netfilter.nf_conntrack_max'] }}
-
 nifi-set-wmem:
   sysctl.present:
     - name: net.core.wmem_max
