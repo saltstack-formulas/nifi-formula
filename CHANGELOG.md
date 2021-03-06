@@ -1,5 +1,17 @@
 # Changelog
 
+# [0.6.0](https://github.com/saltstack-formulas/nifi-formula/compare/v0.5.0...v0.6.0) (2021-03-06)
+
+
+### Continuous Integration
+
+* **kitchen+gitlab-ci:** use latest pre-salted images [skip ci] ([221c1dd](https://github.com/saltstack-formulas/nifi-formula/commit/221c1ddcb88f81ccfe5ca1870922e7c7fed03a80))
+
+
+### Features
+
+* **formula:** should not config firewall kernel params ([5b65453](https://github.com/saltstack-formulas/nifi-formula/commit/5b6545394978cae06276010168288133cfc0ff8d))
+
 # [0.5.0](https://github.com/saltstack-formulas/nifi-formula/compare/v0.4.0...v0.5.0) (2021-03-04)
 
 
