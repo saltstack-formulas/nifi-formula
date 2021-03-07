@@ -527,6 +527,7 @@ nifi:
     nifi.bootstrap: 'INFO'
     nifi.bootstrap.Command: 'INFO'
     nifi.StdOut: 'INFO'
+    nifi.StdErr: "ERROR"
     rootlevel: 'INFO'
 
   # Nifi Bootstrap Notifications Service Config File Defaults
