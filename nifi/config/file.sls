@@ -68,6 +68,30 @@ nifi-config-file-file-managed:
     - context:
         nifi: {{ nifi | json }}
 
+# NiFi Logback File.
+nifi-logback-file-file-managed:
+  file.managed:
+  {% if pillar.nifi.nifienv['exportNIFILOGDIR'] is defined and pillar.nifi.nifienv['exportNIFILOGDIR'] != '"${NIFI_HOME}/logs"' %}
+    - name: {{ nifi.nifienv['exportNIFILOGDIR'] }}/logback.xml
+  {% elif pillar.nifi.bootstrap['conf.dir'] is defined and pillar.nifi.bootstrap['conf.dir'] != './conf' %}
+    - name: {{ nifi.bootstrap['conf.dir'] }}/logback.xml
+  {% else %}
+    - name: {{ nifi.pkg.installdir }}/nifi-{{ nifi.pkg.version }}/conf/logback.xml
+  {% endif %}
+    - source: {{ files_switch(['logback.tmpl.jinja'],
+                              lookup='nifi-logback-file-file-managed'
+                 )
+              }}
+    - mode: 644
+    - user: {{ nifi.systemdconfig.user }}
+    - group: {{ nifi.systemdconfig.group }}
+    - makedirs: True
+    - template: jinja
+    - require:
+      - sls: {{ sls_package_install }}
+    - context:
+        nifi: {{ nifi | json }}
+
 # NiFi Boostrap Notification Settings File.
 nifi-bootstrapnotifications-file-file-managed:
   file.managed:
