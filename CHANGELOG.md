@@ -1,5 +1,18 @@
 # Changelog
 
+# [0.7.0](https://github.com/saltstack-formulas/nifi-formula/compare/v0.6.0...v0.7.0) (2021-03-07)
+
+
+### Continuous Integration
+
+* **kitchen+ci:** use latest pre-salted images (after CVE) [skip ci] ([099d4c9](https://github.com/saltstack-formulas/nifi-formula/commit/099d4c9714de42a9b7e31f383794e0aeda571317))
+
+
+### Features
+
+* **formula:** add missing default ([bcc6cfa](https://github.com/saltstack-formulas/nifi-formula/commit/bcc6cfa85baa8243d7c864781a6a3771e617aa3b))
+* **formula:** template log levels ([3349fbc](https://github.com/saltstack-formulas/nifi-formula/commit/3349fbca848c9fa31328496dfe032fa48bae6e97))
+
 # [0.6.0](https://github.com/saltstack-formulas/nifi-formula/compare/v0.5.0...v0.6.0) (2021-03-06)
 
 
