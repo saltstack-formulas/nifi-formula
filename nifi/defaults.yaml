@@ -491,6 +491,44 @@ nifi:
         </cluster-provider>
     </stateManagement>
 
+
+  # Logback Logging Settings.
+  logback:
+    nifi: 'INFO'
+    nifi.processors: 'WARN'
+    nifi.processors.standard.LogAttribute: 'INFO'
+    nifi.processors.standard.LogMessage: 'INFO'
+    nifi.controller.repository.StandardProcessSession: 'INFO'
+    zookeeper.ClientCnxn: 'ERROR'
+    zookeeper.server.NIOServerCnxn: 'ERROR'
+    zookeeper.server.NIOServerCnxnFactory: 'ERROR'
+    zookeeper.server.quorum: 'ERROR'
+    zookeeper.ZooKeeper: 'ERROR'
+    zookeeper.server.PrepRequestProcessor: 'ERROR'
+    calcite.runtime.CalciteException: 'OFF'
+    curator.framework.recipes.leader.LeaderSelector: 'OFF'
+    curator.ConnectionState: 'OFF'
+    nifi.cluster: 'INFO'
+    nifi.server.JettyServer: 'INFO'
+    eclipse.jetty: 'INFO'
+    springframework: 'ERROR'
+    glassfish.jersey.internal.Errors: 'ERROR'
+    eclipse.jetty.annotations.AnnotationParser: 'ERROR'
+    net.schmizz.sshj: 'WARN'
+    com.hierynomus.sshj: 'WARN'
+    com.hierynomus.smbj: 'WARN'
+    nifi.web.security.requests: 'INFO'
+    nifi.web.security: 'INFO'
+    nifi.web.api.config: 'INFO'
+    nifi.authorization: 'INFO'
+    nifi.cluster.authorization: 'INFO'
+    nifi.web.filter.RequestLogger: 'INFO'
+    nifi.web.api.AccessResource: 'INFO'
+    nifi.bootstrap: 'INFO'
+    nifi.bootstrap.Command: 'INFO'
+    nifi.StdOut: 'INFO'
+    rootlevel: 'INFO'
+
   # Nifi Bootstrap Notifications Service Config File Defaults
   # This is an XML code block. Ensure this is properly indented
   bootstrapnotifications: |
