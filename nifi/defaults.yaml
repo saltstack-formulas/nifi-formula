@@ -394,6 +394,9 @@ nifi:
     java.arg.2: '-Xms512m'
     java.arg.3: '-Xmx512m'
 
+    # Enable Remote Debugging
+    # java.arg.debug: '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000'
+
     java.arg.4: '-Djava.net.preferIPv4Stack=true'
 
     # allowRestrictedHeaders is required for
@@ -408,7 +411,7 @@ nifi:
     # However, if using a newer
     # version of Java, it can result in better performance without
     # significant "stop-the-world" delays.
-    # java.arg.13=-XX:+UseG1GC
+    # java.arg.13: '-XX:+UseG1GC'
 
     # Set headless mode by default
     java.arg.14: '-Djava.awt.headless=true'
@@ -445,6 +448,19 @@ nifi:
     # In the case that we are unable to send a notification for an event,
     # how many times should we retry?
     notification.max.attempts: 5
+
+    # Comma-separated list of identifiers that are present in the notification.services.file; 
+    # which services should be used to notify when NiFi is started?
+    #nifi.start.notification.services: 'email-notification'
+
+
+    # Comma-separated list of identifiers that are present in the notification.services.file;
+    # which services should be used to notify when NiFi is stopped?
+    #nifi.stop.notification.services: 'email-notification'
+
+    # Comma-separated list of identifiers that are present in the notification.services.file;
+    # which services should be used to notify when NiFi dies?
+    #nifi.dead.notification.services: 'email-notification'
 
     additionalconfigenabled: 'false'
     additionalconfig: ''
