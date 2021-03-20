@@ -39,3 +39,7 @@ export NIFI_LOG_DIR={{ nifi.nifienv.exportNIFILOGDIR }}
 # restriction).
 export NIFI_ALLOW_EXPLICIT_KEYTAB={{ nifi.nifienv.exportNIFIALLOWEXPLICITKEYTAB }}
 
+# Additional Options
+{% if nifi.nifienv['additionalconfigenabled'] != 'false' -%}
+{{ nifi.nifienv['additionalconfig'] }}
+{% endif %}
