@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`0.8.0 <https://github.com/saltstack-formulas/nifi-formula/compare/v0.7.0...v0.8.0>`_ (2021-03-21)
+------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **contributing:** add comments to defaults (\ `081cba1 <https://github.com/saltstack-formulas/nifi-formula/commit/081cba1437542385fadc9f9fc2fa1f7ea1f60a2b>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **defaults:** update version from ``1.12.1`` => ``1.13.1`` [skip ci] (\ `8f0b47c <https://github.com/saltstack-formulas/nifi-formula/commit/8f0b47cf91ffdec4ed4542340a9e2e7f64959a38>`_\ )
+* **formula:** add settings (\ `6f812f7 <https://github.com/saltstack-formulas/nifi-formula/commit/6f812f75c27182f5af16a0c5c34f23d684eb8719>`_\ )
+
 `0.7.0 <https://github.com/saltstack-formulas/nifi-formula/compare/v0.6.0...v0.7.0>`_ (2021-03-07)
 ------------------------------------------------------------------------------------------------------
 
