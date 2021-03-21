@@ -395,7 +395,8 @@ nifi:
     java.arg.3: '-Xmx512m'
 
     # Enable Remote Debugging
-    # java.arg.debug: '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000'
+    # java.arg.debug: >
+    #   -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
 
     java.arg.4: '-Djava.net.preferIPv4Stack=true'
 
@@ -449,18 +450,20 @@ nifi:
     # how many times should we retry?
     notification.max.attempts: 5
 
-    # Comma-separated list of identifiers that are present in the notification.services.file; 
+    # Comma-separated list of identifiers that are present
+    # in the notification.services.file;
     # which services should be used to notify when NiFi is started?
-    #nifi.start.notification.services: 'email-notification'
+    # nifi.start.notification.services: 'email-notification'
 
-
-    # Comma-separated list of identifiers that are present in the notification.services.file;
+    # Comma-separated list of identifiers that are present
+    # in the notification.services.file;
     # which services should be used to notify when NiFi is stopped?
-    #nifi.stop.notification.services: 'email-notification'
+    # nifi.stop.notification.services: 'email-notification'
 
-    # Comma-separated list of identifiers that are present in the notification.services.file;
+    # Comma-separated list of identifiers that are present
+    # in the notification.services.file;
     # which services should be used to notify when NiFi dies?
-    #nifi.dead.notification.services: 'email-notification'
+    # nifi.dead.notification.services: 'email-notification'
 
     additionalconfigenabled: 'false'
     additionalconfig: ''
