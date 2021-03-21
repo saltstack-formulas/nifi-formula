@@ -40,7 +40,11 @@ java.arg.2={{ nifi.bootstrap['java.arg.2'] }}
 java.arg.3={{ nifi.bootstrap['java.arg.3'] }}
 
 # Enable Remote Debugging
+{%- if pillar.nifi.bootstrap['java.arg.debug'] is defined %}
+java.arg.debug={{ nifi.bootstrap['java.arg.debug'] }}
+{% else %}
 #java.arg.debug=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
+{% endif -%}
 
 java.arg.4={{ nifi.bootstrap['java.arg.4'] }}
 
@@ -51,7 +55,11 @@ java.arg.6={{ nifi.bootstrap['java.arg.6'] }}
 # The G1GC is known to cause some problems in Java 8 and earlier, but the issues were addressed in Java 9. If using Java 8 or earlier,
 # it is recommended that G1GC not be used, especially in conjunction with the Write Ahead Provenance Repository. However, if using a newer
 # version of Java, it can result in better performance without significant "stop-the-world" delays.
+{% if pillar.nifi.bootstrap['java.arg.13'] is defined -%}
+java.arg.13={{ nifi.bootstrap['java.arg.13'] }}
+{% else -%}
 #java.arg.13=-XX:+UseG1GC
+{% endif -%}
 
 #Set headless mode by default
 java.arg.14={{ nifi.bootstrap['java.arg.14'] }}
@@ -81,11 +89,27 @@ notification.services.file={{ nifi.bootstrap['notification.services.file'] }}
 notification.max.attempts={{ nifi.bootstrap['notification.max.attempts'] }}
 
 # Comma-separated list of identifiers that are present in the notification.services.file; which services should be used to notify when NiFi is started?
+{%- if pillar.nifi.bootstrap['nifi.start.notification.services'] is defined %}
+nifi.start.notification.services={{ nifi.bootstrap['nifi.start.notification.services'] }}
+{% else %}
 #nifi.start.notification.services=email-notification
+{% endif -%}
 
 # Comma-separated list of identifiers that are present in the notification.services.file; which services should be used to notify when NiFi is stopped?
+{%- if pillar.nifi.bootstrap['nifi.stop.notification.services'] is defined %}
+nifi.stop.notification.services={{ nifi.bootstrap['nifi.stop.notification.services'] }}
+{% else %}
 #nifi.stop.notification.services=email-notification
+{% endif -%}
 
 # Comma-separated list of identifiers that are present in the notification.services.file; which services should be used to notify when NiFi dies?
+{%- if pillar.nifi.bootstrap['nifi.dead.notification.services'] is defined %}
+nifi.dead.notification.services={{ nifi.bootstrap['nifi.dead.notification.services'] }}
+{% else %}
 #nifi.dead.notification.services=email-notification
+{% endif -%}
 
+# Additional Options
+{%- if nifi.bootstrap['additionalconfigenabled'] != 'false' %}
+{{ nifi.bootstrap['additionalconfig'] }}
+{% endif %}
