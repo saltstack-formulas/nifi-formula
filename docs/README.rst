@@ -156,7 +156,6 @@ Pillars - 3 Node Cluster with External Zookeeper Servers
         cluster.node.protocol.port: '1111'
         cluster.flow.election.max.wait.time: '1 mins'
         zookeeper.connect.string: 'nifi-1.localdomain:2181,nifi-2.localdomain:2181,nifi-3.localdomain:2181'
-        state.management.embedded.zookeeper.start: 'true'
         web.http.host: {{ grains['fqdn'] }}
 
 
